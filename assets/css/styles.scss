@@ -2,28 +2,16 @@
 ---
 @import "{{ site.theme }}";
 
-// 1. Put the image on the absolute base layer
-html {
-  background: url("https://i.imgur.com/RT4qwGy.png") no-repeat center center fixed !important;
+body {
+  background-image: url("https://i.imgur.com/RT4qwGy.png") !important;
   background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
 }
 
-// 2. Make the body and main containers transparent so the image shows through
-body, .wrapper, section, header {
-  background: transparent !important;
-}
-
-// 3. Optional: Add a subtle glass effect to the text area so it's readable
 .wrapper {
-  background: rgba(255, 255, 255, 0.85) !important;
-  padding: 30px !important;
-  border-radius: 10px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
-}
-
-// 4. Fix for the header/sidebar in Minimal theme
-header {
-  padding-bottom: 20px;
+  background: rgba(255, 255, 255, 0.8) !important;
+  padding: 20px !important;
+  border-radius: 10px !important;
 }
