@@ -1,26 +1,12 @@
-# Site Settings
-title: Johns Site
-email: johndeltarune25@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Placeholder
+title: My Site
+# Remove 'theme' and 'remote_theme' entirely to test
+# This uses the 'Architect' theme which is built into GitHub
+theme: jekyll-theme-architect
 
-# GitHub Pages URL Settings
-# If your site is at username.github.io/repository-name/, set baseurl to /repository-name
-# If your site is at username.github.io/, leave baseurl as ""
-baseurl: "" 
-url: "https://username.github.io"
-
-# Build Settings
-theme: minima
-# If you are using a specific GitHub Pages supported theme, 
-# it must be listed here.
-remote_theme: jekyll/minima
-
-# Plugins
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+  - jekyll-remote-theme
 
-# Sass Settings
+# This helps avoid 'file not found' errors
 sass:
-  style: compressed # Minifies your CSS for faster loading
+  style: compressed
+  
