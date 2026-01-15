@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -38,17 +38,23 @@
         .container {
             max-width: 800px;
             margin: 2rem auto;
-            padding: 0 1rem;
+            padding: 0; /* move inner padding into .content so image sits flush */
             background: #fff;
             color: #333;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden; /* ensures rounded corners clip inner elements */
+        }
+
+        /* inner content keeps the padding for text */
+        .content {
+            padding: 2rem 1rem;
         }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 0 1rem; /* we already have padding in .content, but keep small horizontal spacing */
         }
 
         .hero h1 {
@@ -62,17 +68,18 @@
             padding: 2rem;
             font-size: 0.9rem;
             color: #666;
+            background: transparent;
         }
 
-        /* Responsive image */
+        /* Responsive image: now sits inside the white container and forms the bottom of the card */
         .hero-image {
-            max-width: 100%;
+            width: 100%;
             height: auto;
-            border-radius: 15px;
-            margin-bottom: 20px;
             display: block;
-            margin-left: auto;
-            margin-right: auto;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            margin: 0; /* remove any gap */
+            object-fit: cover;
         }
 
         .center {
@@ -101,25 +108,29 @@
     </nav>
 
     <div class="container">
-        <section class="hero">
-            <h1>hello!!!</h1>
-            <p>welcome to johndeltarunes website!</p>
-        </section>
+        <!-- content keeps padding for text -->
+        <div class="content">
+            <section class="hero">
+                <h1>hello!!!</h1>
+                <p>welcome to johndeltarunes website!</p>
+            </section>
 
-        <hr>
+            <hr>
 
-        <section id="about" style="padding: 2rem;">
-            <h2>about me</h2>
-            <p>hi! i am johndeltarune25yt. i am a deltarune fan that posts stuff abt video games on yt.</p>
-            <ul>
-                <li><strong>what i do:</strong> i make scratch projects in my free time. i also try to learn coding!</li>
-                <li><strong>what do i like?</strong> i like video gaming and technology. i specifically like deltarune, undertale, and more. im a rlly big old technology fan</li>
-                <li><strong>other misc stuff about me:</strong> i have a MASSIVE video game music addiction. like i love video games music so much (thx toby fox)</li>
-            </ul>
-        </section>
+            <section id="about" style="padding: 2rem 0;">
+                <h2>about me</h2>
+                <p>hi! i am johndeltarune25yt. i am a deltarune fan that posts stuff abt video games on yt.</p>
+                <ul>
+                    <li><strong>what i do:</strong> i make scratch projects in my free time. i also try to learn coding!</li>
+                    <li><strong>what do i like?</strong> i like video gaming and technology. i specifically like deltarune, undertale, and more. im a rlly big old technology fan</li>
+                    <li><strong>other misc stuff about me:</strong> i have a MASSIVE video game music addiction. like i love video games music so much (thx toby fox)</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Move the image into the container so the white background extends to it -->
+        <img src="4-monsterKidRun-u5aplAAT0Wq7sEiE.gif" alt="noooo monster kid fall" class="hero-image">
     </div>
-
-  <img src="4-monsterKidRun-u5aplAAT0Wq7sEiE.gif" alt="noooo monster kid fall" class="hero-image">
 
   <!-- Embed / Counters -->
   <section class="center" style="margin-top: 1rem;">
