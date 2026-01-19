@@ -39,7 +39,7 @@
         .container {
             max-width: 800px;
             margin: 2rem auto;
-            padding: 0; /* move inner padding into .content so image sits flush */
+            padding: 0; /* keep inner padding in .content and section blocks */
             background: #fff;
             color: #333;
             border-radius: 8px;
@@ -50,6 +50,11 @@
         /* inner content keeps the padding for text */
         .content {
             padding: 2rem 1rem;
+        }
+
+        /* Helper section padding so moved elements inside container get consistent spacing */
+        .section {
+            padding: 1.5rem 1rem;
         }
 
         /* Hero Section */
@@ -72,15 +77,14 @@
             background: transparent;
         }
 
-        /* Responsive image: now sits inside the white container and forms the bottom of the card */
+        /* Responsive image: sits inside the white container */
         .hero-image {
             width: 100%;
             height: auto;
             display: block;
-            border-bottom-left-radius: 8px;
-            border-bottom-right-radius: 8px;
             margin: 0; /* remove any gap */
             object-fit: cover;
+            border-radius: 0; /* allow the container's bottom radius to show on iframe below */
         }
 
         .center {
@@ -94,6 +98,44 @@
             padding: 0.6rem 1rem;
             border-radius: 6px;
             cursor: pointer;
+            margin: 0.25rem;
+        }
+
+        /* Make the embedded iframe responsive and centered inside container */
+        .embed-wrap {
+            display: flex;
+            justify-content: center;
+            padding-bottom: 1.5rem; /* spacing at bottom of container */
+        }
+
+        .embed-wrap iframe {
+            max-width: 100%;
+            width: 300px;
+            height: 80px;
+            border: 0;
+        }
+
+        /* Audio and links centered and spaced nicely */
+        .links-row {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .audio-center {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Small screens: make container margin a little smaller */
+        @media (max-width: 420px) {
+            .content {
+                padding: 1rem;
+            }
+            .section {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -118,7 +160,7 @@
 
             <hr>
 
-            <section id="about" style="padding: 2rem 0;">
+            <section id="about" class="section" style="padding-top: 0;">
                 <h2>about me</h2>
                 <p>hi! i am johndeltarune25yt. i am a deltarune fan that posts stuff abt video games on yt.</p>
                 <ul>
@@ -129,47 +171,46 @@
             </section>
         </div>
 
-        <!-- Move the image into the container so the white background extends to it -->
+        <!-- Image stays inside the container -->
         <img src="assets/4-monsterKidRun-u5aplAAT0Wq7sEiE.gif" alt="noooo monster kid fall" class="hero-image">
+
+        <!-- Embed / Counters moved into the white container so the white card extends down to the embed ONLY -->
+        <section class="embed-wrap">
+            <iframe
+              src="https://livecounts.io/embed/youtube-live-subscriber-counter/UCAelppccaMC6E7mbiwfq_fw"
+              scrolling="no"
+              allowtransparency="true"
+              ></iframe>
+        </section>
     </div>
 
-  <!-- Embed / Counters -->
-  <section class="center" style="margin-top: 1rem;">
-    <!-- Note: src must be quoted. Use https (no mixed-content). -->
-    <iframe
-      src="https://livecounts.io/embed/youtube-live-subscriber-counter/UCAelppccaMC6E7mbiwfq_fw"
-      width="300"
-      height="80"
-      frameborder="0"
-      scrolling="no"
-      style="border:0; width:300px; height:80px;"
-      allowtransparency="true"
-      >
-    </iframe>
-  </section>
-
-  <!-- Other links / button -->
+  <!-- Other links / button (moved OUTSIDE the container so the white card stops at the embed) -->
   <section class="center" style="margin-top: 1rem;">
     <p>my other stuff!</p>
-    <button onclick="window.location.href='https://youtube.com/@johndeltareanulununu'">
-      YT Channel
-    </button>
+    <div class="links-row" style="margin-bottom: 1rem;">
+      <button onclick="window.location.href='https://youtube.com/@johndeltareanulununu'">
+        YT Channel
+      </button>
 
-    <button onclick="window.location.href='https://www.instagram.com/johndeltarune25/'">
-      Instagram
-    </button>
+      <button onclick="window.location.href='https://www.instagram.com/johndeltarune25/'">
+        Instagram
+      </button>
 
-    <button onclick="window.location.href='https://github.com/JohndeltaruneCodes'">
-      GitHub
-    </button>
+      <button onclick="window.location.href='https://github.com/JohndeltaruneCodes'">
+        GitHub
+      </button>
+    </div>
   </section>
 
+  <!-- Audio kept OUTSIDE the container as requested -->
   <section style="padding: 2rem; text-align: center;">
     <h3>one of my fave songs</h3>
-    <audio controls>
-    <source src="/assets/undertale.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+    <div class="audio-center">
+      <audio controls>
+        <source src="/assets/undertale.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
   </section>
 
     <footer>
